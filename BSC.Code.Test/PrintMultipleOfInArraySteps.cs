@@ -2,6 +2,7 @@
 using BSC.Code.Library.Utils;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace BSC.Code.Test
 {
@@ -43,7 +44,13 @@ namespace BSC.Code.Test
         [When(@"The array have following items")]
         public void WhenTheArrayHaveFollowingItems(Table table)
         {
-            ScenarioContext.Current.Pending();
+            //Arrange
+            var rows = table.CreateSet<InputClass>();
+            // Storing rach row/object in a dictionary
+            foreach (InputClass obj in rows)
+            {
+                this._arrayInputs.Add(obj.item, obj);
+            }
         }
         
         [Then(@"should print item")]
