@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BSC.Code.Library.Utils;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -56,7 +57,24 @@ namespace BSC.Code.Test
         [Then(@"should print item")]
         public void ThenShouldPrintItem(Table table)
         {
-            ScenarioContext.Current.Pending();
+            var expectedObjects = table.CreateSet<InputClass>();
+
+            //Check that each object that should be present, really is present
+            foreach (InputClass obj in expectedObjects)
+            {
+                InputClass actualObject = this._arrayInputs[obj.item];
+                if (false == actualObject.message.Equals(obj.message))
+                {
+                    Assert.Fail(String.Format(
+                        "Expected message '{0}', actual text was {1}",obj.message, actualObject.message));
+                }
+
+                if (actualObject.item != obj.item)
+                {
+                    Assert.Fail(String.Format(
+                        "Expected item '{0}', actual item was {1}", obj.item, actualObject.item));
+                }
+            }
         }
     }
 }
