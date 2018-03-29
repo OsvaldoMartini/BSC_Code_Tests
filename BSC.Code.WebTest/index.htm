@@ -30,6 +30,31 @@
         obj = JSON.parse(BCS2);
         arrayData = obj.data;
 
+        var filtered = [];
+
+        //for (i = 0; i < arrayData.length; i++) {
+        //    if (arrayData.account.charAt(0) == 'B') {
+        //           out +=
+        //    } 
+        //        }
+        for(var i in arrayData) {
+            if (arrayData.hasOwnProperty(i)) {
+
+                var item = arrayData[i];
+                if (item.account.charAt(0) === 'B') {
+
+                    filtered.push({
+                        "id": item.id,
+                        "name": item.name,
+                        "account": item.account,
+                        "value": item.value,
+                        "created":item.creted
+                    });
+                }
+            }
+        }
+
+
 
         $(function () {
             //var obj = JSON.parse(jsondata);
@@ -39,7 +64,7 @@
             $("#GridBSC").jqGrid
             ({
                 datatype: 'local',
-                data: arrayData,
+                data: filtered,
                 //table header name
                 colNames: ['id', 'Name', 'Account', 'Value', 'Created'],
                 //colModel takes the data from controller and binds to grid
@@ -94,6 +119,8 @@
             }
 
             );
+
+            $('#GridBSC').jqGrid('sortGrid', 'account', true, 'asc');
 
             //for (var i = 0; i <= mydata.length; i++)
             //    jQuery("#GridBSC").jqGrid('addRowData', i + 1, mydata[i]);
