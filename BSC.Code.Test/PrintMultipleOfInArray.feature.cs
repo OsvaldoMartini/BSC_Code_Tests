@@ -80,8 +80,6 @@ namespace BSC.Code.Test
 this.ScenarioSetup(scenarioInfo);
 #line 11
  testRunner.Given("an array of integers between 1 and 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
- testRunner.When("item is multiple of 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "item",
@@ -92,8 +90,11 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "9",
                         "multiple of 3"});
-#line 13
- testRunner.And("The array have following items", ((string)(null)), table1, "And ");
+            table1.AddRow(new string[] {
+                        "6",
+                        "multiple of 3, ends in 6"});
+#line 12
+ testRunner.When("The array have following items", ((string)(null)), table1, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "item",

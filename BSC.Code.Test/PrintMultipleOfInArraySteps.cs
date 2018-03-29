@@ -33,14 +33,6 @@ namespace BSC.Code.Test
             _arrayOfIntegers = BDD_Result.ArrayOfInteger(initial, final);
         }
         
-        [When(@"item is multiple of (.*)")]
-        public void WhenItemIsMultipleOf(int multipleOf)
-        {
-            //Arrange
-            int expected = 0;
-            int input = 3;
-            Assert.AreEqual(expected, input % multipleOf);
-        }
         
         [When(@"The array have following items")]
         public void WhenTheArrayHaveFollowingItems(Table table)
@@ -74,6 +66,8 @@ namespace BSC.Code.Test
                     Assert.Fail(String.Format(
                         "Expected item '{0}', actual item was {1}", obj.item, actualObject.item));
                 }
+
+
             }
         }
     }
