@@ -31,12 +31,6 @@
         arrayData = obj.data;
 
         var filtered = [];
-
-        //for (i = 0; i < arrayData.length; i++) {
-        //    if (arrayData.account.charAt(0) == 'B') {
-        //           out +=
-        //    } 
-        //        }
         for(var i in arrayData) {
             if (arrayData.hasOwnProperty(i)) {
 
@@ -54,8 +48,7 @@
             }
         }
 
-
-
+        
         $(function () {
             //var obj = JSON.parse(jsondata);
 
@@ -122,9 +115,7 @@
 
             $('#GridBSC').jqGrid('sortGrid', 'account', true, 'asc');
 
-            //for (var i = 0; i <= mydata.length; i++)
-            //    jQuery("#GridBSC").jqGrid('addRowData', i + 1, mydata[i]);
-
+ 
         });
 
     </script>
