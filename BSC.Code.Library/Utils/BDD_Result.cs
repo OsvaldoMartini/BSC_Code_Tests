@@ -16,15 +16,20 @@ namespace BSC.Code.Library.Utils
             
             if ((itemOfArray % 3 == 0) && (itemOfArray % 10 == 6))
             {
-                Console.WriteLine(String.Format("{0} multiple of 3, ends in 6"), itemOfArray);
+                Console.WriteLine(String.Format("{0} multiple of 3, ends in 6", itemOfArray));
              }
             else if (itemOfArray % 3 == 0)
             {
-                Console.WriteLine(String.Format("{0} multiple of 3"), itemOfArray);
+                Console.WriteLine(String.Format("{0} multiple of 3", itemOfArray));
             }
             else if (itemOfArray % 10 == 6)
             {
-                Console.WriteLine(String.Format("{0} ends in 6"), itemOfArray);
+                Console.WriteLine(String.Format("{0} ends in 6", itemOfArray));
+            }
+            else
+            {
+                Console.WriteLine(itemOfArray);
+
             }
 
         }
