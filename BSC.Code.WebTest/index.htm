@@ -42,7 +42,7 @@
                         "name": item.name,
                         "account": item.account,
                         "value": item.value,
-                        "created":item.creted
+                        "created":item.created
                     });
                 }
             }
@@ -76,11 +76,15 @@
                     name: 'account', editable: true, editrules: { required: true }, search: true
                 },
                 {
-                    name: "value", editable: true, editrules: { required: true }, search: false
+                    name: "value", editable: true, editrules: { required: true }, search: false,
+                    formatter: 'number', formatoptions: { thousandsSeparator: ",", deaultValue: "0", decimalPlaces: 2 }
                 },
                 {
-                    name: "created", editable: true, editrules: { required: true }, search: false
+                    name: "created", editable: true, editrules: { required: true }, search: false,
+                    formatter: 'date', formatoptions: { srcformat: "F, d Y", newformat: "d F Y" }
+
                 }
+
                 ],
                 height: '100%',
                 viewrecords: true,
@@ -117,6 +121,22 @@
 
  
         });
+
+        function formatDate(date) {
+            var monthNames = [
+                "January", "February", "March",
+                "April", "May", "June", "July",
+                "August", "September", "October",
+                "November", "December"
+            ];
+
+            var day = date.getDate();
+            var monthIndex = date.getMonth();
+            var year = date.getFullYear();
+
+            return day + ' ' + monthNames[monthIndex] + ' ' + year;
+        }
+
 
     </script>
 
