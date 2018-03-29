@@ -13,7 +13,7 @@
 
     <script>
 
-        var BCS1 ='{"data":[{"id":1,"name":"Bob","account":"ACC123","value":500,"created":"2017-01- 11" },{"id":2,"name":"Alice","account":"BBB321","value":300,"created":"2017-03- 05" },{"id":3,"name":"Jim","account":"BAA456","value":20.5,"created":"2017-02- 12" },{"id":4,"name":"Liz","account":"BBB654","value":1000,"created":"2017-04- 30"}]}';
+        var BCS1 = '{"data":[{"id":1,"name":"Bob","account":"ACC123","value":500,"created":"2017-01- 11" },{"id":2,"name":"Alice","account":"BBB321","value":300,"created":"2017-03- 05" },{"id":3,"name":"Jim","account":"BAA456","value":20.5,"created":"2017-02- 12" },{"id":4,"name":"Liz","account":"BBB654","value":1000,"created":"2017-04- 30"}]}';
         var BCS2 = '{\"data\":[{\"id\":1,\"name\":\"Bob\",\"account\":\"ACC123\",\"value\":500,\"created\":\"2017-01- 11\" },{\"id\":2,\"name\":\"Alice\",\"account\":\"BBB321\",\"value\":300,\"created\":\"2017-03- 05\" },{\"id\":3,\"name\":\"Jim\",\"account\":\"BAA456\",\"value\":20.5,\"created\":\"2017-02- 12\" },{\"id\":4,\"name\":\"Liz\",\"account\":\"BBB654\",\"value\":1000,\"created\":\"2017-04- 30\"}]}';
         var mydata = [
             { id: "1", name: "test", account: "account", value: "200.00", created: "2017-03- 05" },
@@ -26,13 +26,12 @@
             { id: "8", name: "test2", account: "account2", value: "300.00", created: "2017-04- 30" },
             { id: "9", name: "test3", account: "account3", value: "400.00", created: "2017-04- 30" }
         ];
-     
+
         obj = JSON.parse(BCS2);
         arrayData = obj.data;
-        
 
-        $(function ()   
-        {
+
+        $(function () {
             //var obj = JSON.parse(jsondata);
 
             //document.getElementById("demo").innerHTML = jsondata.name;
@@ -41,59 +40,59 @@
             ({
                 datatype: 'local',
                 data: arrayData,
-                //table header name  
-                colNames: ['id', 'Name', 'Account', 'Value', 'Created'],  
-                //colModel takes the data from controller and binds to grid  
-                colModel: [  
-                {  
-                    name: 'id',  
-                    editable: true,  
-                    key: true,  
-                    hidden: true,  
-                    search: false  
-                },  
-                {  
-                    name: "name", editable: true, editrules: { required: true }, search: true  
-                },  
-                {  
-                    name: 'account', editable: true, editrules: { required: true }, search: true  
-                },  
-                {  
-                    name: "value", editable: true, editrules: { required: true }, search: false  
-                },  
-                {  
-                    name: "created", editable: true, editrules: { required: true }, search: false  
-                }  
-                ],  
-                height: '100%',  
-                viewrecords: true,  
-                caption: 'BSC Case Test 2',  
-                emptyrecords: 'No records',  
-                rowNum: 10,  
-  
-                pager: jQuery('#pager'),  
-                rowList: [10, 20, 30, 40],  
-  
-                jsonReader:  
-                {  
-                    root: "rows",  
-                    page: "page",  
-                    total: "total",  
-                    records: "records",  
-                    repeatitems: false,  
-                    Id: "0"  
-                },  
-                autowidth: true  
-            }).navGrid('#pager',  
-            {  
-                edit: true,  
-                add: true,  
-                del: true,  
-                search: true,  
-                refresh: true,  
-                closeAfterSearch: true  
+                //table header name
+                colNames: ['id', 'Name', 'Account', 'Value', 'Created'],
+                //colModel takes the data from controller and binds to grid
+                colModel: [
+                {
+                    name: 'id',
+                    editable: true,
+                    key: true,
+                    hidden: true,
+                    search: false
+                },
+                {
+                    name: "name", editable: true, editrules: { required: true }, search: true
+                },
+                {
+                    name: 'account', editable: true, editrules: { required: true }, search: true
+                },
+                {
+                    name: "value", editable: true, editrules: { required: true }, search: false
+                },
+                {
+                    name: "created", editable: true, editrules: { required: true }, search: false
+                }
+                ],
+                height: '100%',
+                viewrecords: true,
+                caption: 'BSC Case Test 2',
+                emptyrecords: 'No records',
+                rowNum: 10,
+
+                pager: jQuery('#pager'),
+                rowList: [10, 20, 30, 40],
+
+                jsonReader:
+                {
+                    root: "rows",
+                    page: "page",
+                    total: "total",
+                    records: "records",
+                    repeatitems: false,
+                    Id: "0"
+                },
+                autowidth: true
+            }).navGrid('#pager',
+            {
+                edit: true,
+                add: true,
+                del: true,
+                search: true,
+                refresh: true,
+                closeAfterSearch: true
             }
-  
+
             );
 
             //for (var i = 0; i <= mydata.length; i++)
@@ -101,17 +100,17 @@
 
         });
 
-        </script>  
+    </script>
 
 </head>
 <body>
-<p>
-    Please see table below:
-</p>
-<p id="demo"></p>
-<div>
-    <table id="GridBSC"></table>
-    <div id="pager"></div>
-</div> 
+    <p>
+        Please see table below:
+    </p>
+    <p id="demo"></p>
+    <div>
+        <table id="GridBSC"></table>
+        <div id="pager"></div>
+    </div>
 </body>
 </html>
