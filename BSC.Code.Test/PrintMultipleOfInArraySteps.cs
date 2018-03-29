@@ -11,6 +11,7 @@ namespace BSC.Code.Test
     {
         public int item { get; set; }
         public string message { get; set; }
+        public int multipleOf { get; set; }
     }
 
 
@@ -58,7 +59,7 @@ namespace BSC.Code.Test
                 if (false == actualObject.message.Equals(obj.message))
                 {
                     Assert.Fail(String.Format(
-                        "Expected message '{0}', actual text was {1}",obj.message, actualObject.message));
+                        "Expected message '{0}', actual text was {1}", obj.message, actualObject.message));
                 }
 
                 if (actualObject.item != obj.item)
@@ -66,6 +67,21 @@ namespace BSC.Code.Test
                     Assert.Fail(String.Format(
                         "Expected item '{0}', actual item was {1}", obj.item, actualObject.item));
                 }
+
+                if ((actualObject.item % actualObject.multipleOf == 0) && (actualObject.item % 10 == 6))
+                {
+                    Assert.Pass(String.Format(
+                        "Expected message '{0}', actual text was {1}", obj.message, actualObject.message));
+                }else if (actualObject.item % actualObject.multipleOf == 0)
+                {
+                    Assert.Pass(String.Format(
+                        "Expected message '{0}', actual text was {1}", obj.message, actualObject.message));
+                }else if (actualObject.item % 10 == 6)
+                {
+                    Assert.Pass(String.Format(
+                        "Expected message '{0}', actual text was {1}", obj.message, actualObject.message));
+                }
+
 
 
             }

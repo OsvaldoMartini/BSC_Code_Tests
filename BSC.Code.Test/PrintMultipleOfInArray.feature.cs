@@ -83,15 +83,19 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "item",
+                        "multipleOf",
                         "message"});
             table1.AddRow(new string[] {
+                        "3",
                         "3",
                         "multiple of 3"});
             table1.AddRow(new string[] {
                         "9",
+                        "3",
                         "multiple of 3"});
             table1.AddRow(new string[] {
                         "6",
+                        "3",
                         "multiple of 3, ends in 6"});
 #line 12
  testRunner.When("The array have following items", ((string)(null)), table1, "When ");
@@ -105,6 +109,9 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "9",
                         "multiple of 3"});
+            table2.AddRow(new string[] {
+                        "6",
+                        "multiple of 3, ends in 6"});
 #line 17
  testRunner.Then("should print item", ((string)(null)), table2, "Then ");
 #line hidden

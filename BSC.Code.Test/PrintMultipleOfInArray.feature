@@ -10,12 +10,13 @@ Feature: PrintMultipleOfInArray
 Scenario: Print items of the array
 	Given an array of integers between 1 and 100
 	When The array have following items
-    | item | message |
-	| 3      |multiple of 3 |
-	| 9      |multiple of 3 |
-	| 6      |multiple of 3, ends in 6 |
+    | item | multipleOf | message        |
+    | 3    | 3          | multiple of 3  |
+    | 9    | 3          | multiple of 3  |
+    | 6    | 3          | multiple of 3, ends in 6 |
 	Then should print item 
     | item | message      |
     | 3    | multiple of 3 |
     | 9    | multiple of 3 |
+    | 6    | multiple of 3, ends in 6  |
     
