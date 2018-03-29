@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BSC.Code.Library.Utils
@@ -9,5 +10,24 @@ namespace BSC.Code.Library.Utils
         {
             return Enumerable.Range(initial , final).ToList();
         }
+
+        public static void PrintOutPut(int itemOfArray)
+        {
+            
+            if ((itemOfArray % 3 == 0) && (itemOfArray % 10 == 6))
+            {
+                Console.WriteLine(String.Format("{0} multiple of 3, ends in 6"), itemOfArray);
+             }
+            else if (itemOfArray % 3 == 0)
+            {
+                Console.WriteLine(String.Format("{0} multiple of 3"), itemOfArray);
+            }
+            else if (itemOfArray % 10 == 6)
+            {
+                Console.WriteLine(String.Format("{0} ends in 6"), itemOfArray);
+            }
+
+        }
+
     }
 }
