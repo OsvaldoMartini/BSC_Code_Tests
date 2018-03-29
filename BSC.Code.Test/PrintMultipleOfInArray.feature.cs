@@ -84,11 +84,14 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("item is multiple of 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "item"});
+                        "item",
+                        "message"});
             table1.AddRow(new string[] {
-                        "3"});
+                        "3",
+                        "multiple of 3"});
             table1.AddRow(new string[] {
-                        "9"});
+                        "9",
+                        "multiple of 3"});
 #line 13
  testRunner.And("The array have following items", ((string)(null)), table1, "And ");
 #line hidden

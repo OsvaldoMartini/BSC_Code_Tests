@@ -11,9 +11,9 @@ Scenario: Print items of the array
 	Given an array of integers between 1 and 100
 	When item is multiple of 3
 	And The array have following items
-    | item |
-	| 3      |
-	| 9      |
+    | item | message |
+	| 3      |multiple of 3 |
+	| 9      |multiple of 3 |
 	Then should print item 
     | item | message      |
     | 3    | multiple of 3 |
