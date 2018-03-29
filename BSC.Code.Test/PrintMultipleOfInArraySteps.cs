@@ -1,21 +1,43 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using BSC.Code.Library.Utils;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace BSC.Code.Test
 {
+    class InputClass
+    {
+        public int item { get; set; }
+        public string message { get; set; }
+    }
+
+
+
     [Binding]
     public class PrintMultipleOfInArraySteps
     {
-        [Given(@"an array of integers between (.*) and (.*)")]
-        public void GivenAnArrayOfIntegersBetweenAnd(int p0, int p1)
+        private Dictionary<int, InputClass> _arrayInputs;
+        private List<int> _arrayOfIntegers;
+
+        public PrintMultipleOfInArraySteps()
         {
-            ScenarioContext.Current.Pending();
+            this._arrayInputs = new Dictionary<int, InputClass>();
+
+        }
+
+        [Given(@"an array of integers between (.*) and (.*)")]
+        public void GivenAnArrayOfIntegersBetweenAnd(int initial, int final)
+        {
+            _arrayOfIntegers = BDD_Result.ArrayOfInteger(initial, final);
         }
         
         [When(@"item is multiple of (.*)")]
-        public void WhenItemIsMultipleOf(int p0)
+        public void WhenItemIsMultipleOf(int multipleOf)
         {
-            ScenarioContext.Current.Pending();
+            //Arrange
+            int expected = 0;
+            int input = 3;
+            Assert.AreEqual(expected, input % multipleOf);
         }
         
         [When(@"The array have following items")]

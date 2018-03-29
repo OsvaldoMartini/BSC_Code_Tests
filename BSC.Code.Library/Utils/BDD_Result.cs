@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace BSC.Code.Library.Utils
 {
-    public class TestResult
+    public class BDD_Result
     {
         public static List<int> ArrayOfInteger(int initial, int final)
         {
