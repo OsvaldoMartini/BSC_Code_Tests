@@ -10,7 +10,8 @@
     <script src="/Scripts/jquery-ui-1.10.0.js"></script>
     <script src="/Scripts/i18n/grid.locale-en.js"></script>
     <script src="/Scripts/jquery.jqGrid.min.js"></script>
-
+    
+ 
     <script>
 
         var BCS1 = '{"data":[{"id":1,"name":"Bob","account":"ACC123","value":500,"created":"2017-01- 11" },{"id":2,"name":"Alice","account":"BBB321","value":300,"created":"2017-03- 05" },{"id":3,"name":"Jim","account":"BAA456","value":20.5,"created":"2017-02- 12" },{"id":4,"name":"Liz","account":"BBB654","value":1000,"created":"2017-04- 30"}]}';
@@ -77,14 +78,14 @@
                 },
                 {
                     name: "value", editable: true, editrules: { required: true }, search: false,
-                    formatter: 'number', formatoptions: { thousandsSeparator: ",", deaultValue: "0", decimalPlaces: 2 }
+                    formatter: formatterCurrency
                 },
                 {
                     name: "created", editable: true, editrules: { required: true }, search: false,
                     formatter: 'date', formatoptions: { srcformat: "F, d Y", newformat: "d F Y" }
 
                 }
-
+                    
                 ],
                 height: '100%',
                 viewrecords: true,
@@ -136,6 +137,41 @@
 
             return day + ' ' + monthNames[monthIndex] + ' ' + year;
         }
+
+
+        //formatter value Red Blue and Decimal Separator
+        function formatterCurrency(cellvalue) {
+            if (cellvalue < 100) {
+                return '<span class="currency" style="background-color: #ff3333; display: block; width: 100%; height: 100%; ">' +
+                    CurrencyFormatted(cellvalue) +
+                    '</span>';
+            } else if (cellvalue > 500)
+            {
+                return '<span class="currency"style="background-color: #66ff66; display: block; width: 100%; height: 100%; ">' +
+                    CurrencyFormatted(cellvalue) +
+                    '</span>';
+            }else
+                return CurrencyFormatted(cellvalue);
+
+        }
+
+
+        function CurrencyFormatted(amount) {
+            var i = parseFloat(amount);
+            if (isNaN(i)) { i = 0.00; }
+            var minus = '';
+            if (i < 0) { minus = '-'; }
+            i = Math.abs(i);
+            i = parseInt((i + .005) * 100);
+            i = i / 100;
+            var s;
+            s = new String(i);
+            if (s.indexOf('.') < 0) { s += '.00'; }
+            if (s.indexOf('.') === (s.length - 2)) { s += '0'; }
+            s = minus + s;
+            return s;
+        }
+
 
 
     </script>
