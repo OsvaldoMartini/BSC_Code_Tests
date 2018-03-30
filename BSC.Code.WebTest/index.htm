@@ -11,24 +11,15 @@
     <script src="/Scripts/i18n/grid.locale-en.js"></script>
     <script src="/Scripts/jquery.jqGrid.min.js"></script>
     
- 
+    
+
     <script>
+        //TOOL USED : JSON String Escape / Unescape
+        //https://www.freeformatter.com/json-escape.html#ad-output
 
-        var BCS1 = '{"data":[{"id":1,"name":"Bob","account":"ACC123","value":500,"created":"2017-01- 11" },{"id":2,"name":"Alice","account":"BBB321","value":300,"created":"2017-03- 05" },{"id":3,"name":"Jim","account":"BAA456","value":20.5,"created":"2017-02- 12" },{"id":4,"name":"Liz","account":"BBB654","value":1000,"created":"2017-04- 30"}]}';
-        var BCS2 = '{\"data\":[{\"id\":1,\"name\":\"Bob\",\"account\":\"ACC123\",\"value\":500,\"created\":\"2017-01- 11\" },{\"id\":2,\"name\":\"Alice\",\"account\":\"BBB321\",\"value\":300,\"created\":\"2017-03- 05\" },{\"id\":3,\"name\":\"Jim\",\"account\":\"BAA456\",\"value\":20.5,\"created\":\"2017-02- 12\" },{\"id\":4,\"name\":\"Liz\",\"account\":\"BBB654\",\"value\":1000,\"created\":\"2017-04- 30\"}]}';
-        var mydata = [
-            { id: "1", name: "test", account: "account", value: "200.00", created: "2017-03- 05" },
-            { id: "2", name: "test2", account: "account2", value: "300.00", created: "2017-04- 30" },
-            { id: "3", name: "test3", account: "account3", value: "400.00", created: "2017-03- 05" },
-            { id: "4", name: "test", account: "account", value: "200.00", created: "2017-03- 05" },
-            { id: "5", name: "test2", account: "account2", value: "300.00", created: "2017-04- 30" },
-            { id: "6", name: "test3", account: "account3", value: "400.00", created: "2017-03- 05" },
-            { id: "7", name: "test", account: "account", value: "200.00", created: "2017-03- 05" },
-            { id: "8", name: "test2", account: "account2", value: "300.00", created: "2017-04- 30" },
-            { id: "9", name: "test3", account: "account3", value: "400.00", created: "2017-04- 30" }
-        ];
+        var BCS = '{\"data\":[{\"id\":1,\"name\":\"Bob\",\"account\":\"ACC123\",\"value\":500,\"created\":\"2017-01- 11\" },{\"id\":2,\"name\":\"Alice\",\"account\":\"BBB321\",\"value\":300,\"created\":\"2017-03- 05\" },{\"id\":3,\"name\":\"Jim\",\"account\":\"BAA456\",\"value\":20.5,\"created\":\"2017-02- 12\" },{\"id\":4,\"name\":\"Liz\",\"account\":\"BBB654\",\"value\":1000,\"created\":\"2017-04- 30\"}]}';
 
-        obj = JSON.parse(BCS2);
+        obj = JSON.parse(BCS);
         arrayData = obj.data;
 
         var filtered = [];
@@ -51,10 +42,7 @@
 
         
         $(function () {
-            //var obj = JSON.parse(jsondata);
-
-            //document.getElementById("demo").innerHTML = jsondata.name;
-
+            
             $("#GridBSC").jqGrid
             ({
                 datatype: 'local',
@@ -123,22 +111,7 @@
  
         });
 
-        function formatDate(date) {
-            var monthNames = [
-                "January", "February", "March",
-                "April", "May", "June", "July",
-                "August", "September", "October",
-                "November", "December"
-            ];
-
-            var day = date.getDate();
-            var monthIndex = date.getMonth();
-            var year = date.getFullYear();
-
-            return day + ' ' + monthNames[monthIndex] + ' ' + year;
-        }
-
-
+       
         //formatter value Red Blue and Decimal Separator
         function formatterCurrency(cellvalue) {
             if (cellvalue < 100) {
